@@ -28,3 +28,9 @@ build/
 
 # Testing
 coverage/
+
+
+# fieabase
+
+backend/serviceAccountKey.json
+backend/serviceAccount*.json
