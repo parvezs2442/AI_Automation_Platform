@@ -95,3 +95,23 @@ export const logout = async(req,res) => {
     }
 
 }
+
+export const me = async(req,res) => {
+    try{
+        const user = req.user
+       
+    return res.status(200).json({
+        success:true,
+        message:"User found ",
+        user
+    })
+
+    }catch(error){
+        console.log("GetMe error :", error)
+            return res.status(400).json({
+                success:false,
+                message:"Get user Failed"
+            })
+    }
+}
+
