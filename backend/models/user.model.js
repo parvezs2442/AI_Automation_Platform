@@ -1,7 +1,8 @@
+
 import mongoose from "mongoose";
 
-
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+  {
     firebaseUid: {
       type: String,
       required: true,
@@ -10,8 +11,8 @@ const userSchema = new mongoose.Schema({
 
     name: {
       type: String,
+      required: true,
       trim: true,
-      default: "",
     },
 
     email: {
@@ -26,12 +27,17 @@ const userSchema = new mongoose.Schema({
       type: String,
       default: "",
     },
+    credits: {
+  type: Number,
+  default: 100,
+  min: 0,
+},
   },
   {
     timestamps: true,
   }
-)
+);
 
+const User = mongoose.model("User", userSchema);
 
-const User = mongoose.model("User", userSchema)
-export default User
+export default User;
